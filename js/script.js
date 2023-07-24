@@ -32,7 +32,7 @@ const loop = setInterval(() => {
         mario.style.animation = 'none';
         mario.style.bottom = `${marioPosition}px`;	
 
-        mario.src = '../img/game-over.png';
+        mario.src = './img/game-over.png';
         mario.style.width = '70px'
         mario.style.marginLeft = '50px'
 
@@ -41,15 +41,13 @@ const loop = setInterval(() => {
 
         
         clearInterval(loop);
-
         
     }
 
 }, 10)
 
-
+document.addEventListener('keydown', jump);
 
 btn.addEventListener('click', () => {
-    location.reload( );
+    location.reload();
 })
-document.addEventListener('keydown', jump);
