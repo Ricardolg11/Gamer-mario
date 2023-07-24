@@ -5,12 +5,9 @@ const cloud = document.querySelector('.clouds')
 
 const btn = document.querySelector("#refresh")
 
-
-
 const jump = () => {
     mario.classList.add('jump');
     
-
     setTimeout(() => {
 
         mario.classList.remove('jump');
@@ -38,7 +35,6 @@ const loop = setInterval(() => {
 
         cloud.style.animation = 'none';
         cloud.style.left = `${cludPosition}px`;	
-
         
         clearInterval(loop);
         
@@ -46,7 +42,8 @@ const loop = setInterval(() => {
 
 }, 10)
 
-document.addEventListener('keydown', jump);
+document.addEventListener('keydown' , jump);
+document.addEventListener('click' , jump);
 
 btn.addEventListener('click', () => {
     location.reload();
