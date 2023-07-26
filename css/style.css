@@ -60,6 +60,26 @@ body{
     border-radius: 10px;
 }
 
+.score {
+    height: auto;
+    width: auto;
+    left: 150px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+	font-family: 'Press Start 2P', cursive;
+    font-size: 30px;
+    color: #ff0000;
+}
+
+.gameOver {
+    display: none;
+    position: absolute;
+    width: 500px;
+    left: calc(50% - 221px);
+    top: 0%
+}
+
 @keyframes pipe-animation {
 
     from {
