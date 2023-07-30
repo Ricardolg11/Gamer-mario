@@ -10,7 +10,6 @@ const btn = document.querySelector("#refresh")
 let interval = null;
 let playerScore = 0;
 
-
 //function for score
 let scoreCounter = () => {
     if( gameOver.style.display == 'block' ){
