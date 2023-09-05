@@ -5,9 +5,7 @@
     
 }
 
-
 body{
-
     background: url('../img/backgroud.gif') no-repeat;
 }
 .game-bord {
@@ -31,8 +29,6 @@ body{
     width: 150px;
     position: absolute;
     bottom: 0;
-    
-    
 }
 
 .jump {
@@ -42,9 +38,7 @@ body{
 .clouds {
     position: absolute;
     width: 550px;
-    
     animation:clouds-animation 20s infinite linear;
-
 }
 
 .boton {
