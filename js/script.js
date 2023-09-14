@@ -1,4 +1,3 @@
-
 const mario = document.querySelector('.mario');
 const pipe = document.querySelector('.pipe');
 const cloud = document.querySelector('.clouds')
@@ -7,6 +6,7 @@ let gameOver = document.querySelector(".gameOver");
 const btn = document.querySelector("#refresh")
 
 //declaring variable for score
+
 let interval = null;
 let playerScore = 0;
 
@@ -30,7 +30,6 @@ const jump = () => {
 }
 
 interval = setInterval(scoreCounter, 150);
-
 const loop = setInterval(() => {
 
     const pipePosition = pipe.offsetLeft;
@@ -52,9 +51,7 @@ const loop = setInterval(() => {
 
         cloud.style.animation = 'none';
         cloud.style.left = `${cludPosition}px`;	
-
         gameOver.style.display = "block";
-        
         
         clearInterval(loop);
 
