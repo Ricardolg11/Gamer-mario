@@ -124,7 +124,7 @@ body{
     
     .game-bord {
         top: 130px;
-        width: 80%;
+        width: 60%;
         height: 300px;
         border-bottom: 15px solid #07f807;
         margin: 0 auto;
@@ -145,6 +145,17 @@ body{
     .pipe{
         width: 60px;
     }
+
+    .score{
+        top:125px
+    }
+
+    .gameOver{
+        width: 40%;
+        top: 15%;
+        left: 32%;
+    }
+
 } 
 
 
