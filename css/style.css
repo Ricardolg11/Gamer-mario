@@ -120,4 +120,31 @@ body{
     }
 }
 
+@media screen and (max-width: 810px) {
+    
+    .game-bord {
+        top: 130px;
+        width: 80%;
+        height: 300px;
+        border-bottom: 15px solid #07f807;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(#87CEE8, #E0F6FF);
+    }
+
+    .boton{
+        top: 450px;
+    }
+
+    .clouds{
+        width: 350px;
+
+    } 
+
+    .pipe{
+        width: 60px;
+    }
+} 
+
 
