@@ -46,7 +46,7 @@ body{
     align-items: center;
     margin-top: 20px;
     height: 40px;
-    right: 50%;
+    right: 40%;
     padding: 10px;
     background: linear-gradient(#09ff46, #aabac0);
     font-family: Arial, Helvetica, sans-serif;
@@ -147,7 +147,8 @@ body{
     }
 
     .score{
-        top:125px
+        top: 125px;
+        left: 200px;
     }
 
     .gameOver{
