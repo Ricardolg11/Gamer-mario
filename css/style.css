@@ -2,12 +2,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
 }
 
 body{
     background: url('../img/backgroud.gif') no-repeat;
 }
+
 .game-bord {
     width: 80%;
     height: 500px;
@@ -139,7 +139,6 @@ body{
 
     .clouds{
         width: 350px;
-
     } 
 
     .pipe{
@@ -158,5 +157,3 @@ body{
     }
 
 } 
-
-
