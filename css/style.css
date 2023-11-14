@@ -6,6 +6,8 @@
 
 body{
     background: url('../img/backgroud.gif') no-repeat;
+    align-items: center;
+    background-position: center;
 }
 
 .game-bord {
