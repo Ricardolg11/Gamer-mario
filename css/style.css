@@ -56,12 +56,15 @@ body{
     height: 40px;
     right: 40%;
     padding: 10px;
-    background: linear-gradient(#09ff46, #aabac0);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Fantasy, Helvetica, sans-serif;
     cursor: pointer;
     border-radius: 10px;
 }
 
+.botao{
+    width: 200px;
+    height: 55px;
+}
 .score {
     height: auto;
     width: auto;
@@ -140,11 +143,15 @@ body{
     }
     
     .chao{
-        top: -120;
+        margin-top: -27px;
         height: 100%;
     }
     .boton{
         top: 450px;
+    }
+
+    .botao{
+        margin-top: -50px;
     }
 
     .clouds{
