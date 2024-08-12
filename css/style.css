@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     background: url('../img/backgroud.gif') no-repeat;
     align-items: center;
     background-position: center;
@@ -25,13 +25,12 @@ body{
     animation: pipe-animation 1.5s infinite linear; 
 }
 
-.chao{
+.chao {
     height:700px;
     width: 100%;
     top: -60px;
     position: absolute;
 }
-
 
 .mario {
     width: 150px;
@@ -61,10 +60,11 @@ body{
     border-radius: 10px;
 }
 
-.botao{
+.botao {
     width: 200px;
     height: 55px;
 }
+
 .score {
     height: auto;
     width: auto;
@@ -142,32 +142,33 @@ body{
         overflow: hidden;
     }
     
-    .chao{
+    .chao {
         margin-top: -27px;
         height: 100%;
     }
-    .boton{
+
+    .boton {
         top: 450px;
     }
 
-    .botao{
+    .botao {
         margin-top: -50px;
     }
 
-    .clouds{
+    .clouds {
         width: 350px;
     } 
 
-    .pipe{
+    .pipe {
         width: 60px;
     }
 
-    .score{
+    .score {
         top: 125px;
         left: 200px;
     }
 
-    .gameOver{
+    .gameOver {
         width: 40%;
         top: 15%;
         left: 32%;
