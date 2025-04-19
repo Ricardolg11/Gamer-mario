@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Resetar posições
         mario.style.bottom = '0';
         mario.style.left = '50px';
-        mario.style.backgroundImage = 'url("../img/mario.gif")';
+        mario.style.backgroundImage = 'url("./img/mario.gif")';
         pipe.style.right = '-80px';
         pipe.style.animation = `pipe-animation ${gameSpeed}s infinite linear`;
         clouds.style.animation = 'clouds-animation 20s infinite linear';
@@ -91,23 +91,25 @@ const updateGame = () => {
     const pipeRect = pipe.getBoundingClientRect();
     const marioRect = mario.getBoundingClientRect();
 
-    // Verifica colisão com margem ajustada
+    // Verifica colisão
     if (checkCollision()) {
         gameOver();
         return;
     }
 
-    // Lógica de pontuação (mantida da correção anterior)
+    // Lógica corrigida para contagem de pontos
     if (pipeRect.right < marioRect.left && !pipeCounted) {
         score++;
         scoreDisplay.textContent = score.toString().padStart(2, '0');
         pipeCounted = true;
         
+        // Aumenta dificuldade a cada 5 pontos
         if (score % 5 === 0) {
             gameSpeed = Math.max(0.8, gameSpeed * 0.9);
             pipe.style.animationDuration = `${gameSpeed}s`;
         }
     } 
+    // Reseta a flag quando um novo cano aparece
     else if (pipeRect.left > window.innerWidth) {
         pipeCounted = false;
     }
@@ -123,7 +125,7 @@ const updateGame = () => {
         ground.style.animation = 'none';
         
         // Mostra imagem de game-over
-        mario.style.backgroundImage = 'url("../img/game-over.png")';
+        mario.style.backgroundImage = 'url("./img/game-over.png")';
         mario.style.width = '100px';
         mario.style.height = '100px';
         
