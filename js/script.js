@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clouds.style.animation = 'clouds-animation 20s infinite linear';
         ground.style.animation = 'ground-animation 5s infinite linear';
 
-        // Iniciar loop do jogo
+        // Iniciar loop do jogo mario
         gameLoop = setInterval(updateGame, 20);
     };
 
