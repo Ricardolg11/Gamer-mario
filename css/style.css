@@ -42,7 +42,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: url('../img/backgroud.gif') no-repeat;
+    background: url('./img/backgroud.gif') no-repeat;
     background-size: cover;
 }
 
