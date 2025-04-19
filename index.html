@@ -3,34 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css" />
     <title>Mario Game</title>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
-
   <body>
-    <div class="game-bord">
-      <img src="./img/clouds.png" alt="" class="clouds" />
-
-      <img src="./img/mario.gif" alt="" class="mario" />
-
-      <img src="./img/pipe.png" alt="" class="pipe" />
+    <div class="start-screen">
+      <img src="img/play.png" alt="Play" class="play-btn" />
     </div>
 
-    <div class="score">Pontos <b>00</b></div>
-    <div>
-      <img src="./img/chao.png" alt="" class="chao" />
-      <img
-        class="gameOver"
-        src="./img/gifs-de-game-over-0-1--unscreen.gif"
-        alt=""
-      />
+    <div class="game-container">
+      <div class="background"></div>
+      <div class="clouds"></div>
+      <div class="mario"></div>
+      <div class="pipe"></div>
+      <div class="ground"></div>
+      <div class="score">00</div>
+      <div class="game-over">
+        <img
+          src="img/gifs-de-game-over.gif"
+          alt="Game Over"
+          class="game-over-gif"
+        />
+        <button class="restart-btn">Jogar Novamente</button>
+      </div>
     </div>
 
-    <div class="boton">
-      <bottom id="refresh" class="btn">
-        <img src="./img/play.png" class="botao"
-      /></bottom>
-    </div>
+    <script src="js/script.js"></script>
   </body>
-  <script src="./js/script.js"></script>
 </html>

@@ -1,67 +1,156 @@
-const mario = document.querySelector('.mario');
-const pipe = document.querySelector('.pipe');
-const cloud = document.querySelector('.clouds')
-let score = document.querySelector(".score");
-let gameOver = document.querySelector(".gameOver");
-const btn = document.querySelector("#refresh")
+document.addEventListener('DOMContentLoaded', () => {
+    // Elementos do jogo
+    const startScreen = document.querySelector('.start-screen');
+    const playBtn = document.querySelector('.play-btn');
+    const gameContainer = document.querySelector('.game-container');
+    const mario = document.querySelector('.mario');
+    const pipe = document.querySelector('.pipe');
+    const clouds = document.querySelector('.clouds');
+    const ground = document.querySelector('.ground');
+    const scoreDisplay = document.querySelector('.score');
+    const gameOverScreen = document.querySelector('.game-over');
+    const restartBtn = document.querySelector('.restart-btn');
+    const gameOverGif = document.querySelector('.game-over-gif');
 
-//declaring variable for score
+    // Variáveis do jogo
+    let isJumping = false;
+    let isGameOver = false;
+    let score = 0;
+    let gameSpeed = 2;
+    let gameLoop;
 
-let interval = null;
-let playerScore = 0;
+    // Inicia o jogo
+    const startGame = () => {
+        startScreen.style.display = 'none';
+        gameContainer.style.display = 'block';
+        isGameOver = false;
+        score = 0;
+        pipeCounted = false;  // Adicione esta linha
+        scoreDisplay.textContent = '00';
+        gameOverScreen.style.display = 'none';
 
-//function for score
-let scoreCounter = () => {
-    if( gameOver.style.display == 'block' ){
-        return playerScore;
-    }
-    playerScore++;
-    score.innerHTML = `Score <b>${playerScore}</b>`;
-}
+        // Resetar posições
+        mario.style.bottom = '0';
+        mario.style.left = '50px';
+        mario.style.backgroundImage = 'url("../img/mario.gif")';
+        pipe.style.right = '-80px';
+        pipe.style.animation = `pipe-animation ${gameSpeed}s infinite linear`;
+        clouds.style.animation = 'clouds-animation 20s infinite linear';
+        ground.style.animation = 'ground-animation 5s infinite linear';
 
-const jump = () => {
-    mario.classList.add('jump');
-    
-    setTimeout(() => {
+        // Iniciar loop do jogo
+        gameLoop = setInterval(updateGame, 20);
+    };
 
-        mario.classList.remove('jump');
+    // Pulo do Mario
+    const jump = () => {
+        if (isJumping || isGameOver) return;
+
+        isJumping = true;
+        let jumpCount = 0;
+        const jumpInterval = setInterval(() => {
+            // Subida
+            if (jumpCount < 15) {
+                mario.style.bottom = (jumpCount * 18) + 'px';
+            } 
+            // Descida
+            else if (jumpCount < 30) {
+                mario.style.bottom = ((30 - jumpCount) * 18) + 'px';
+            } 
+            // Fim do pulo
+            else {
+                clearInterval(jumpInterval);
+                isJumping = false;
+                mario.style.bottom = '0';
+            }
+            jumpCount++;
+        }, 20);
+    };
+
+    // Verifica colisão
+    const checkCollision = () => {
+        const pipeRect = pipe.getBoundingClientRect();
+        const marioRect = mario.getBoundingClientRect();
         
-    }, 600);
-}
+        // Ajuste fino na área de colisão
+        const collisionMargin = 20; // Reduz a área de colisão
+        
+        return (
+            pipeRect.left + collisionMargin < marioRect.right - collisionMargin &&
+            pipeRect.right - collisionMargin > marioRect.left + collisionMargin &&
+            pipeRect.top < marioRect.bottom - collisionMargin
+        );
+    };
 
-interval = setInterval(scoreCounter, 150);
-const loop = setInterval(() => {
+    // Atualiza o jogo
+    // Variável para controlar se o cano já foi contabilizado
+let pipeCounted = false;
 
-    const pipePosition = pipe.offsetLeft;
-    const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', ' ');
-    const cludPosition = cloud.offsetLeft;
-    gameOver.style.display = "none";
+const updateGame = () => {
+    if (isGameOver) return;
 
-    if(pipePosition <= 120 && pipePosition > 0  && marioPosition < 80) {
+    const pipeRect = pipe.getBoundingClientRect();
+    const marioRect = mario.getBoundingClientRect();
 
+    // Verifica colisão com margem ajustada
+    if (checkCollision()) {
+        gameOver();
+        return;
+    }
+
+    // Lógica de pontuação (mantida da correção anterior)
+    if (pipeRect.right < marioRect.left && !pipeCounted) {
+        score++;
+        scoreDisplay.textContent = score.toString().padStart(2, '0');
+        pipeCounted = true;
+        
+        if (score % 5 === 0) {
+            gameSpeed = Math.max(0.8, gameSpeed * 0.9);
+            pipe.style.animationDuration = `${gameSpeed}s`;
+        }
+    } 
+    else if (pipeRect.left > window.innerWidth) {
+        pipeCounted = false;
+    }
+};
+    // Game Over
+    const gameOver = () => {
+        isGameOver = true;
+        clearInterval(gameLoop);
+        
+        // Para animações
         pipe.style.animation = 'none';
-        pipe.style.left = `${pipePosition}px`;	
-
-        mario.style.animation = 'none';
-        mario.style.bottom = `${marioPosition}px`;	
-
-        mario.src = './img/game-over.png';
-        mario.style.width = '70px'
-        mario.style.marginLeft = '50px'
-
-        cloud.style.animation = 'none';
-        cloud.style.left = `${cludPosition}px`;	
-        gameOver.style.display = "block";
+        clouds.style.animation = 'none';
+        ground.style.animation = 'none';
         
-        clearInterval(loop);
+        // Mostra imagem de game-over
+        mario.style.backgroundImage = 'url("../img/game-over.png")';
+        mario.style.width = '100px';
+        mario.style.height = '100px';
+        
+        // Mostra tela de game over
+        gameOverScreen.style.display = 'flex';
+    };
 
-    }
-    
-}, 10)
+    // Event Listeners
+    playBtn.addEventListener('click', startGame);
+    restartBtn.addEventListener('click', startGame);
 
-document.addEventListener('keydown' , jump);
-document.addEventListener('click' , jump);
+    document.addEventListener('keydown', (e) => {
+        if (e.code === 'Space') {
+            if (gameContainer.style.display === 'block') {
+                jump();
+            } else {
+                startGame();
+            }
+        }
+    });
 
-btn.addEventListener('click', () => {
-    location.reload();
-})
+    document.addEventListener('touchstart', () => {
+        if (gameContainer.style.display === 'block') {
+            jump();
+        } else {
+            startGame();
+        }
+    });
+});

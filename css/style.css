@@ -5,176 +5,203 @@
 }
 
 body {
-    background: url('../img/backgroud.gif') no-repeat;
-    align-items: center;
-    background-position: center;
-    background-size: cover;
+    overflow: hidden;
+    font-family: 'Press Start 2P', cursive;
 }
 
-.game-bord {
+.start-screen {
+    position: fixed;
     width: 100%;
-    height: 734px;
-    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+}
+
+.play-btn {
+    width: 200px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.play-btn:hover {
+    transform: scale(1.1);
+}
+
+.game-container {
+    width: 100%;
+    height: 100vh;
     position: relative;
     overflow: hidden;
+    display: none;
 }
 
-.pipe {
+.background {
     position: absolute;
-    bottom: 0;
-    width: 70px;
-    animation: pipe-animation 1.5s infinite linear; 
-}
-
-.chao {
-    height:996px;
     width: 100%;
-    top: -60px;
-    position: absolute;
-}
-
-.mario {
-    width: 150px;
-    position: absolute;
-    bottom: 0;
-}
-
-.jump {
-    animation: mario-animation 600ms ease-out;
+    height: 100%;
+    background: url('/img/backgroud.gif') no-repeat;
+    background-size: cover;
 }
 
 .clouds {
     position: absolute;
-    width: 550px;
-    animation:clouds-animation 20s infinite linear;
+    width: 200%;
+    height: 200px;
+    top: 0;
+    background: url('../img/clouds.png') repeat-x;
+    background-size: contain;
+    animation: clouds-animation 20s linear infinite;
 }
 
-.boton {
+.mario {
+    width: 150px;
+    height: 150px;
     position: absolute;
-    align-items: center;
-    margin-top: 20px;
-    height: 40px;
-    right: 40%;
-    padding: 10px;
-    font-family: Fantasy, Helvetica, sans-serif;
-    cursor: pointer;
-    border-radius: 10px;
+    bottom: 0;
+    left: 50px;
+    background: url('../img/mario.gif') no-repeat;
+    background-size: contain;
+    z-index: 2;
+    transition: transform 0.1s;
 }
 
-.botao {
-    width: 200px;
-    height: 55px;
+.pipe {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    bottom: 0;
+    right: -80px;
+    background: url('../img/pipe.png') no-repeat;
+    background-size: contain;
+    z-index: 3;
+}
+
+.ground {
+    position: absolute;
+    bottom: 0;
+    width: 200%;
+    height: 50px;
+    background: url('../img/chao.png') repeat-x;
+    background-size: contain;
+    z-index: 4;
+    animation: ground-animation 5s linear infinite;
 }
 
 .score {
-    height: auto;
-    width: auto;
-    left: 150px;
     position: absolute;
     top: 20px;
     right: 20px;
-	font-family: 'Press Start 2P', cursive;
-    font-size: 30px;
-    color: #00ff15;
+    font-size: 35px;
+    color: white;
+    text-shadow: 3px 3px 0 #000;
+    z-index: 5;
 }
 
-.gameOver {
-    display: none;
+.game-over {
     position: absolute;
-    width: 500px;
-    left: calc(50% - 221px);
-    top: 0%
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10;
 }
 
-@keyframes pipe-animation {
-
-    from {
-        right: -70px;
-    }
-    
-    to {
-        right: 100%;
-    }
+.game-over-gif {
+    width: 400px;
+    margin-bottom: 30px;
 }
 
-@keyframes mario-animation {
+.restart-btn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Press Start 2P', cursive;
+    transition: all 0.3s;
+}
 
-    0% {
-        bottom: 0;
-    }
-
-    40% {
-        bottom: 180px;
-    }
-
-    50% {
-        bottom: 180px;
-    }
-
-    60%{
-        bottom: 180px;
-    }
-
-    100% {
-        bottom: 0;
-    }
-
+.restart-btn:hover {
+    transform: scale(1.1);
+    background: #fff;
+    color: #ff0000;
 }
 
 @keyframes clouds-animation {
-
-    from{
-        right: -550px;
+    from {
+        left: 0;
     }
-    
+    to {
+        left: -100%;
+    }
+}
+
+@keyframes ground-animation {
+    from {
+        left: 0;
+    }
+    to {
+        left: -100%;
+    }
+}
+
+@keyframes pipe-animation {
+    from {
+        right: -80px;
+    }
     to {
         right: 100%;
     }
 }
 
-
-
-@media screen and (max-width: 810px) {
-    
-    .game-bord {
-        top: 130px;
-        width: 60%;
-        height: 300px;
-        margin: 0 auto;
-        position: relative;
-        overflow: hidden;
+/* Responsividade */
+@media (max-width: 768px) {
+    .mario {
+        width: 100px;
+        height: 100px;
     }
     
-    .chao {
-        margin-top: -27px;
-        height: 100%;
-    }
-
-    .boton {
-        top: 450px;
-    }
-
-    .botao {
-        margin-top: -50px;
-    }
-
-    .clouds {
-        width: 350px;
-    } 
-
     .pipe {
         width: 60px;
+        height: 60px;
     }
-
+    
+    .game-over-gif {
+        width: 300px;
+    }
+    
     .score {
-        top: 125px;
-        left: 200px;
+        font-size: 25px;
     }
+}
 
-    .gameOver {
-        width: 40%;
-        top: 15%;
-        left: 32%;
+@media (max-width: 480px) {
+    .mario {
+        width: 80px;
+        height: 80px;
+        left: 20px;
     }
-
-} 
+    
+    .pipe {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .game-over-gif {
+        width: 250px;
+    }
+    
+    .play-btn {
+        width: 150px;
+    }
+}
