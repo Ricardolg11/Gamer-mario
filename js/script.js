@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Resetar posições 
         mario.style.bottom = '0';
         mario.style.left = '50px';
-        mario.style.backgroundImage = 'url("../img/mario.gif")';
+        mario.style.backgroundImage = 'url("/Gamer-mario/img/mario.gif")';
         pipe.style.right = '-80px';
         pipe.style.animation = `pipe-animation ${gameSpeed}s infinite linear`;
         clouds.style.animation = 'clouds-animation 20s infinite linear';
@@ -125,7 +125,7 @@ const updateGame = () => {
         ground.style.animation = 'none';
         
         // Mostra imagem de game-over
-        mario.style.backgroundImage = 'url("../img/game-over.png")';
+        mario.style.backgroundImage = 'url("./img/game-over.png")';
         mario.style.width = '100px';
         mario.style.height = '100px';
         
