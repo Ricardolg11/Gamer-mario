@@ -25,11 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
         gameContainer.style.display = 'block';
         isGameOver = false;
         score = 0;
-        pipeCounted = false;  // Adicione esta linha
+        pipeCounted = false;  
         scoreDisplay.textContent = '00';
         gameOverScreen.style.display = 'none';
 
-        // Resetar posições
+        // Resetar posições 
         mario.style.bottom = '0';
         mario.style.left = '50px';
         mario.style.backgroundImage = 'url("../img/mario.gif")';
