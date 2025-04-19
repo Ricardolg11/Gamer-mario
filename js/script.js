@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Resetar posições
         mario.style.bottom = '0';
         mario.style.left = '50px';
-        mario.style.backgroundImage = 'url("../img/mario.gif")';
+        mario.style.backgroundImage = 'url("../mario.gif")';
         pipe.style.right = '-80px';
         pipe.style.animation = `pipe-animation ${gameSpeed}s infinite linear`;
         clouds.style.animation = 'clouds-animation 20s infinite linear';
