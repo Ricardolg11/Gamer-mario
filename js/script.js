@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
     // Elementos do jogo
     const startScreen = document.querySelector('.start-screen');
     const playBtn = document.querySelector('.play-btn');
@@ -30,16 +29,16 @@ document.addEventListener('DOMContentLoaded', () => {
         scoreDisplay.textContent = '00';
         gameOverScreen.style.display = 'none';
 
-        // Resetar posições 
+        // Resetar posições
         mario.style.bottom = '0';
         mario.style.left = '50px';
-        mario.style.backgroundImage = 'url("/Gamer-mario/img/mario.gif")';
+        mario.style.backgroundImage = 'url("../img/mario.gif")';
         pipe.style.right = '-80px';
         pipe.style.animation = `pipe-animation ${gameSpeed}s infinite linear`;
         clouds.style.animation = 'clouds-animation 20s infinite linear';
         ground.style.animation = 'ground-animation 5s infinite linear';
 
-        // Iniciar loop do jogo mario
+        // Iniciar loop do jogo
         gameLoop = setInterval(updateGame, 20);
     };
 
@@ -52,11 +51,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const jumpInterval = setInterval(() => {
             // Subida
             if (jumpCount < 15) {
-                mario.style.bottom = (jumpCount * 18) + 'px';
+                mario.style.bottom = (jumpCount * 12) + 'px';
             } 
             // Descida
             else if (jumpCount < 30) {
-                mario.style.bottom = ((30 - jumpCount) * 18) + 'px';
+                mario.style.bottom = ((30 - jumpCount) * 12) + 'px';
             } 
             // Fim do pulo
             else {
@@ -83,8 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         );
     };
 
-    // Atualiza o jogo
-    // Variável para controlar se o cano já foi contabilizado
+    // Atualiza o jogo// Variável para controlar se o cano já foi contabilizado
 let pipeCounted = false;
 
 const updateGame = () => {
@@ -125,7 +123,7 @@ const updateGame = () => {
         ground.style.animation = 'none';
         
         // Mostra imagem de game-over
-        mario.style.backgroundImage = 'url("./img/game-over.png")';
+        mario.style.backgroundImage = 'url("../img/game-over.png")';
         mario.style.width = '100px';
         mario.style.height = '100px';
         
