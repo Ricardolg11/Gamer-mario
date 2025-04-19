@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    
     // Elementos do jogo
     const startScreen = document.querySelector('.start-screen');
     const playBtn = document.querySelector('.play-btn');
