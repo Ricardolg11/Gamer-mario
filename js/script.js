@@ -81,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
             pipeRect.top < marioRect.bottom - collisionMargin
         );
     };
-
     // Atualiza o jogo// Variável para controlar se o cano já foi contabilizado
 let pipeCounted = false;
 
