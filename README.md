@@ -1,5 +1,5 @@
 # Mario Jump Game #
- Bem-vindo  ao Mario Jump Game, um jogo simples e divertido inspirado no famoso jogo do dinossauro do Google. Aqui, o Mario precisa evitar obstáculos que se aproximam saltando no momento certo.
+ Bem-vindo ao Mario Jump Game, um jogo simples e divertido inspirado no famoso jogo do dinossauro do Google. Aqui, o Mario precisa evitar obstáculos que se aproximam saltando no momento certo.
 
   <div style="display: inline_block " align="center">
     <img  alt="Ricar-pic" height="250" style="border-radius:50px;" src="https://media.tenor.com/UkvleU1dQK4AAAAi/2d-mario-running.gif">
