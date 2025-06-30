@@ -67,7 +67,7 @@ body {
     z-index: 2;
     transition: transform 0.1s;
 }
-/* */
+
 .pipe {
     width: 80px;
     height: 80px;
